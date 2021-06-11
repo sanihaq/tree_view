@@ -167,6 +167,12 @@ class TreeViewController {
         } else if (mode == InsertMode.append) {
           _children.insert(
               index != null ? index + 1 : _children.length, newNode);
+        } else if (mode == InsertMode.insert) {
+          _children.insert(
+              index == null || index > _children.length
+                  ? _children.length
+                  : index,
+              newNode);
         } else if (mode == InsertMode.replace) {
           final children = _addChildrenFrom(_children[index ?? 0].key);
           _children.removeAt(index ?? 0);
