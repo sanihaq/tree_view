@@ -185,34 +185,37 @@ class _TreeNodeState extends State<TreeNode> {
                                         onDragCompleted: _treeView.onDragEnd,
                                         onDraggableCanceled: (_, __) =>
                                             _treeView.onDragEnd(),
-                                        feedback: Container(
-                                          decoration: BoxDecoration(
-                                            color: _treeView.theme.hoverColor,
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.circular(8)),
-                                          ),
-                                          padding: EdgeInsets.all(
-                                              _treeView.theme.verticalPadding),
-                                          child: Row(
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Icon(
-                                                  Icons.copy,
-                                                  color: _treeView
-                                                      .theme.textTheme.color,
-                                                  size: _treeView
-                                                      .theme.textTheme.fontSize,
+                                        feedback: Opacity(
+                                          opacity: 0.6,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: _treeView.theme.hoverColor,
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(8)),
+                                            ),
+                                            padding: EdgeInsets.all(_treeView
+                                                .theme.verticalPadding),
+                                            child: Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(4.0),
+                                                  child: Icon(
+                                                    Icons.copy,
+                                                    color: _treeView
+                                                        .theme.textTheme.color,
+                                                    size: _treeView.theme
+                                                        .textTheme.fontSize,
+                                                  ),
                                                 ),
-                                              ),
-                                              Text(
-                                                widget.node.name,
-                                                style:
-                                                    _treeView.theme.textTheme,
-                                              ),
-                                            ],
+                                                Text(
+                                                  widget.node.name,
+                                                  style:
+                                                      _treeView.theme.textTheme,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                         child: Text.rich(
@@ -293,7 +296,13 @@ class _TreeNodeState extends State<TreeNode> {
                                         ),
                                         textStyle: _treeView.theme.textTheme,
                                         child: Container(
-                                          color: _treeView.theme.selectColor,
+                                          decoration: BoxDecoration(
+                                            border: Border(
+                                              top: BorderSide(
+                                                  color: _treeView
+                                                      .theme.primaryColor),
+                                            ),
+                                          ),
                                         ),
                                       )
                                     : Container();
@@ -326,7 +335,13 @@ class _TreeNodeState extends State<TreeNode> {
                                         ),
                                         textStyle: _treeView.theme.textTheme,
                                         child: Container(
-                                          color: _treeView.theme.selectColor,
+                                          decoration: BoxDecoration(
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                  color: _treeView
+                                                      .theme.primaryColor),
+                                            ),
+                                          ),
                                         ),
                                       )
                                     : Container();

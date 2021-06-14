@@ -4,6 +4,8 @@ class TreeTheme {
   /// text theme for name of the node
   final TextStyle textTheme;
 
+  final Color primaryColor;
+
   /// background color of currently selected node
   final Color selectColor;
 
@@ -25,6 +27,7 @@ class TreeTheme {
 
   TreeTheme({
     required this.textTheme,
+    required this.primaryColor,
     required this.selectColor,
     required this.shadowColor,
     required this.hoverColor,
